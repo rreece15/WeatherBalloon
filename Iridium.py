@@ -6,9 +6,15 @@ uart = board.UART()
 uart.baudrate = 19200
 rb = RockBlock(uart)
 
-def send_message():
-    #function
-    message = "hello world"
+def send_message(text_out = "hello world"):
+    rb.text_out = text_out
+    status = rb.satellite_transfer()
+    retry = 0
+    while status[0] > 8:
+        time.sleep(10)
+        status = rb.satellite_transfer()
+        print(retry, status)
+        retry += 1
 
 def receive_message():
     #function
