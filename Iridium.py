@@ -1,10 +1,10 @@
 import time
-import board
-from adafruit_rockblock import RockBlock
+#import board
+#from adafruit_rockblock import RockBlock
 
-uart = board.UART()
-uart.baudrate = 19200
-rb = RockBlock(uart)
+#uart = board.UART()
+#uart.baudrate = 19200
+#rb = RockBlock(uart)
 
 def send_message(text_out = "hello world"):
     rb.text_out = text_out
@@ -36,3 +36,6 @@ def process_message():
 
 def main():
     main_function = 0
+    print('hi')
+
+main()
