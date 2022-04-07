@@ -15,23 +15,20 @@ def send_message(text_out = "hello world"):
         status = rb.satellite_transfer()
         print(retry, status)
         retry += 1
+    
 
 def receive_message():
-    # try a satellite Short Burst Data transfer
-    print("Talking to satellite...")
+    #function
     status = rb.satellite_transfer()
-    # loop as needed
     retry = 0
     while status[0] > 8:
-        time.sleep(10)
+        time.sleep()
         status = rb.satellite_transfer()
         print(retry, status)
         retry += 1
     print("\nDONE.")
-
-    # get the text
-    print(rb.text_in)
-    return rb.text_in
+    data = rb.data_in
+    return data
 
 def process_message():
     message = receive_message()
