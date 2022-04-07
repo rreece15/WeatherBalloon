@@ -15,6 +15,7 @@ def send_message(text_out = "hello world"):
         status = rb.satellite_transfer()
         print(retry, status)
         retry += 1
+    print("\nDONE.")
     
 
 def receive_message():
